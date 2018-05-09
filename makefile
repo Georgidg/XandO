@@ -1,5 +1,5 @@
-main.o: Board.o IllegalCharException.o IllegalCoordinateException.o Place.o
-
+a.o: Board.o IllegalCharException.o IllegalCoordinateException.o Place.o
+	g++ main.cpp Board.cpp Place.cpp IllegalCoordinateException.cpp IllegalCharException.cpp -o a
 Place.o: Place.cpp Place.h
 	g++ Place.cpp Place.h -c Place.cpp
 Board.o: Board.cpp Board.h
