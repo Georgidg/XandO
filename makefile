@@ -1,4 +1,4 @@
-a.out: Board.o IllegalCharException.o IllegalCoordinateException.o Place.o
+main.o: Board.o IllegalCharException.o IllegalCoordinateException.o Place.o
 
 Place.o: Place.cpp Place.h
 	g++ Place.cpp Place.h -c Place.cpp
