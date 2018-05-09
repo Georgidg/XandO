@@ -1,9 +1,10 @@
-using namespace std;
-#pragma once
-#include <iostream>
-#include <IllegalCoordinateException.h>
+#include "IllegalCoordinateException.h"
 
-string IllegalCoordinateException::theCoordinate() const {
-  string ans = "{"+to_string(p.getX())+","+to_string(p.getY())+"}";
-  return ans;
+
+
+IllegalCoordinateException::IllegalCoordinateException(int i,int j):i(i),j(j){};
+
+string IllegalCoordinateException::theCoordinate() const{
+	string str  = to_string(this->i)+","+to_string(this->j);
+	return str;
 }

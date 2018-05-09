@@ -1,15 +1,17 @@
-using namespace std;
 #pragma once
-#include <iostream>
-#include "Board.h"
-#include "Place.h"
-#include "IllegalCharException.h"
-#include "Character.h"
+#include <string>
+
+using namespace std;
 
 
-class IllegalCoordinateException {
-	Place c;
-public:
-	IllegalCoordinateException(Place p): c(p) {}
-	Place theCoordinate() const { return c; }
+class IllegalCoordinateException{
+
+	private:
+		int i;
+		int j;
+
+	public:
+		IllegalCoordinateException(int i,int j);
+		string theCoordinate()const;
+
 };

@@ -1,50 +1,24 @@
-using namespace std;
 #pragma once
-#include <iostream>
 #include "Place.h"
-#include "IllegalCoordinateException.h"
-#include "IllegalCharException.h"
-#include "Character.h"
+using namespace std;
 
 
 class Board{
 
-    int size;
-    Character matrix[][]=new matrix[size][size];
+	Place** matrix;
+	int size;
 
-  public: 
+public:
 
-    Board(int size){ 
-        Character matrix[][]=new matrix[size][size];
-        for(int i=0, i<size; i++){
-            for(int j=0, j<size; j++){
-                matrix[i][j]=Character();
-            }
-        }
-    }
-    
-    Board& char operator [] (Place p){
-        char c;
-        c = Place(a,b);
-        return c;
-    }
-    //
-    Board& operator = (char c){
-        for(int i=0, i<size; i++){
-            for(int j=0, j<size; j++){
-                matrix[i][j]=Place(c);
-            }
-        }
-    }
-    void isLegal(Place p){
-        if (p > size)
-
-    }
-
-    ostream& operator <<(ostream& os, const Board& b);
-    Place& operator [] (int a, int b);
-
-
-
-    //board()
+Board(int length);
+Board(const Board& b);
+~Board();
+Place& operator[](const Place& p) ; //const std::pair<int,int>& Index
+Board& operator=(char index);
+Board& operator=(const Board& b);
+void initial();
+void create(int newsize);
+void free();
+friend ostream& operator<<(ostream& os, const Board& b);
 };
+

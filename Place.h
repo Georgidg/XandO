@@ -1,10 +1,25 @@
 #pragma once
 
-struct Place {
-	int x,y;
-	Place(int x, int y): x(x), y(y) {}
+#include<iostream>
+using namespace std;
+
+
+class Place {
+	int x;
+	int y;
+	char index;
+
+public:
+
+	Place();
+	Place(int x, int y); // , char chr);
+	Place& operator=(char index);
+	bool operator==(char b) const;
+	operator char() const;
+	int getX() const;
+	int getY() const;
+	char getChar() const;
+	void setChar(const char index) ;
+
 };
 
-inline ostream& operator << (ostream& os, const Place& p) {
-	return (os << p.x << "," << p.y);
-}
