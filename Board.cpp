@@ -17,9 +17,9 @@ Board::Board(const Board& b){
 				matrix[i][j] = b.matrix[i][j];
 }
 
-Board::~Board() {
-	free();
-}
+// Board::~Board() {
+// 	free();
+// }
 
 void Board::create(int newsize) {
 	size = newsize;
@@ -50,7 +50,7 @@ Place& Board::operator[](const Place& p) {
 Board& Board::operator=(char index) {
 	if (index != '.')
 		throw IllegalCharException(index);
-	initial();
+	//initial();
 	return *this;
 
 }
@@ -58,7 +58,7 @@ Board& Board::operator=(char index) {
 Board& Board::operator=(const Board& b) {
 	if(this != &b){
 	if (size != b.size) {
-			free();
+			//free();
 			create(b.size);
 
 	}
@@ -71,16 +71,16 @@ Board& Board::operator=(const Board& b) {
 	return *this;
 }
 
-void Board::free() {
-	for (int i = 0; i < size; i++)
-		delete[] matrix[i]; // delete array within matrix
-	delete[] matrix;  // delete actual matrix
+// void Board::free() {
+// 	for (int i = 0; i < size; i++)
+// 		delete[] matrix[i]; 
+// 	delete[] matrix;  
 
-}
+// }
 
-void Board::initial() {
-	for (int i = 0; i < size; i++)
-		for (int j = 0; j < size; j++)
-			matrix[i][j].setChar('.');
-}
+// void Board::initial() {
+// 	for (int i = 0; i < size; i++)
+// 		for (int j = 0; j < size; j++)
+// 			matrix[i][j].setChar('.');
+// }
 

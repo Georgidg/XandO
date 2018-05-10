@@ -24,8 +24,7 @@ Place& Place::operator=(char index){
 
 bool Place::operator==(char b)const{
 	 return(index==b);
-	//     return true;
-	//   return false;
+	
 
 }
 
