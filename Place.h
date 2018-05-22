@@ -4,6 +4,7 @@ using namespace std;
 #pragma once
 
 class Place {
+public:
     int x;
     int y;
     Place(int x, int y);
