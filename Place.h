@@ -1,25 +1,17 @@
 #pragma once
+#include <iostream>
 
-#include<iostream>
-using namespace std;
-
+#pragma once
 
 class Place {
-	int x;
-	int y;
-	char index;
-
-public:
-
-	Place();
-	Place(int x, int y); 
-	Place& operator=(char index);
-	bool operator==(char b) const;
-	operator char() const;
-	int getX() const;
-	int getY() const;
-	char getChar() const;
-	void setChar(const char index) ;
-
+    int x;
+    int y;
+    Place(int x, int y);
+    Place (const Place& otherP);
+    int get_X ();
+    int get_Y();
 };
 
+inline ostream& operator<< (ostream& out, const Coordinate& c) {
+	return (out << c.x << "," << c.y);
+}
