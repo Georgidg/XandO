@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+using namespace std;
 #pragma once
 
 class Place {
@@ -12,6 +12,6 @@ class Place {
     int get_Y();
 };
 
-inline ostream& operator<< (ostream& out, const Coordinate& c) {
+inline ostream& operator<< (ostream& out, const Place& c) {
 	return (out << c.x << "," << c.y);
 }
