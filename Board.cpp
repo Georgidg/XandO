@@ -2,6 +2,7 @@
 #include "Board.h"
 #include "IllegalCoordinateException.h"
 #include "IllegalCharException.h"
+#include "Place.h"
 
 using namespace std;
 
