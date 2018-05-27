@@ -1,16 +1,11 @@
-
+#include <exception>
+using namespace std;
 #pragma once
-
+#include <iostream>
 
 class IllegalCharException{
-
-char index;
-
-public:
-IllegalCharException(char index);
-char theChar() const;
-
-
-};
-
-
+    char c;
+    theChar(){
+        throw c;
+    }
+}

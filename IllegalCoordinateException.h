@@ -1,17 +1,10 @@
-#pragma once
-#include <string>
-
+#include <exception>
 using namespace std;
-
+#pragma once
+#include <iostream>
 
 class IllegalCoordinateException{
-
-	private:
-		int i;
-		int j;
-
-	public:
-		IllegalCoordinateException(int i,int j);
-		string theCoordinate()const;
-
-};
+    theCoordinate(){
+        
+    }
+}
