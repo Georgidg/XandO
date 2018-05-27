@@ -18,7 +18,6 @@ Board::Board(const Board& b){
 }
 
 
-
 void Board::create(int newsize) {
 	size = newsize;
 	matrix = new Place*[size];
@@ -68,5 +67,18 @@ Board& Board::operator=(const Board& b) {
 	}
 	return *this;
 }
+
+istream& operator >>(istream& is, Board& b){
+     int size;
+     is>> "enter size: " >>size;
+	 for(int i=0; i<size;i++){
+		 for(int j=0; j<size;j++){
+			 char ch;
+			 is>> ch;
+		 }
+	 }
+     
+     return is;
+ }
 
 
