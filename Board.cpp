@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 using namespace std;
+static int hodaya=0;
 
 struct RGB {
   uint8_t red, green, blue;
@@ -35,99 +36,73 @@ void Board::create(int newsize) {
 }
 
 string Board::draw(int n){
-cout<<"   in draw"<< endl;
   int size = this->size; //size of board
-  Board board1{size};
-//   int countY = 0,countX = 0;
-
-//   ofstream imageFile("cpp.ppm", ios::out | ios::binary);
-//   imageFile << "P6" << endl << n <<" " << n << endl << 255 << endl;
-//   RGB image[n][n];
-
-//   for (int j = 0; j < n; j++)  {  // row
-//     for (int i = 0; i < n; i++) { // column
-// 		if(j==n/size*(countY+1)){
-// 			countY++;
-// 		}else if(countY == size){
-// 			countY = 0;
-// 		}
-// 		if(i==n/size*(countX+1)){
-// 			countX++;
-// 		}else if(countX == size){
-// 			countX = 0;
-// 		}
-// 		if(( j< n/size*(countY+1) && j > n/size*countY) && (i< n/size*(countX+1) && i > n/size*countX)){
-//       		image[i][j].red = (100); 
-//       		image[i][j].green = (0);
-//      	 	image[i][j].blue = (50);	
-// 		}
-		
-// 		else{ //black
-// 			image[i][j].red = (0); 
-//       		image[i][j].green = (0);
-//      		image[i][j].blue = (0);
-// 		}
-
-//     }
-//   }
-
-  int countY = 0,countX = 0;
-  int i, j;
- 
-  ofstream imageFile("cpp.ppm", ios::out | ios::binary);
-  imageFile << "P6" << endl << n <<" " << n << endl << 255 << endl;
-  RGB image[n][n];
-
-for (int k=0; k<size; k++){
-	for(int p=0; p<size; p++){
-
-		if(board1[{countX, countY}] == 'X'){
-			for (j =  n/size*countY; j < n/size*(countY+1); j++)  {  // row
-    			for (i = n/size*countX; i < n/size*(countX+1); i++) { // column
-					image[i][j].red = (250); 
-      				image[i][j].green = (0);
-     	 			image[i][j].blue = (0);
-				}
-			}
-		}
-		else if(board1[{countX,countY}] == 'O'){
-			for (j =  n/size*countY; j < n/size*(countY+1); j++)  {  // row
-    			for (i = n/size*countX; i < n/size*(countX+1); i++) { // column
-					image[i][j].red = (0); 
-      				image[i][j].green = (0);
-     	 			image[i][j].blue = (250);
-				}
-			}
-		}
-	
-		if(j==n/size*(countY+1)){
-			countY++;
-		}else if(countY == size){
-			countY = 0;
-		}
-		if(i==n/size*(countX+1)){
-			countX++;
-		}else if(countX == size){
-			countX = 0;
-		}
-		// if(( j< dimy/size*(countY+1) && j > dimy/size*countY) && (i< dimx/size*(countX+1) && i > dimx/size*countX)){
-      	// 	image[i][j].red = (100); 
-      	// 	image[i][j].green = (0);
-     	//  	image[i][j].blue = (50);	
-		// }
-		
-		if(board1[{countX,countY}] == '.'){
-			for (j =  n/size*countY; j < n/size*(countY+1); j++)  {  // row
-    			for (i = n/size*countX; i < n/size*(countX+1); i++) { // column
-					image[i][j].red = (0); 
-      				image[i][j].green = (0);
-     	 			image[i][j].blue = (0);
-				}
-			}
-		}
-    }
+  while(true){
+    ifstream kk("board"+to_string(hodaya)+".ppm");
+        if(!kk.good())
+            break;
+        else
+          hodaya++;
 }
-  return "board"+to_string(size)+".ppm";
+    string name="board"+to_string(hodaya)+".ppm";
+   
+	ofstream imageFile(name, ios::out | ios::binary);
+ 	imageFile << "P6" << endl << n <<" " << n << endl << 255 << endl;
+  	RGB image[n][n];
+
+
+	int countX=0, countY=0;
+	int i,j;
+	for (int k=0; k<size; k++){
+		for(int p=0; p<size; p++){
+			
+
+			
+			if(matrix[k][p] == 'X'){
+				for (i =  (n/size)*k; i < n/size*(k+1); i++)  {  // row
+					for (j = n/size*p; j < n/size*(p+1); j++) { // column
+						image[i][j].red = (250); 
+						image[i][j].green = (0);
+						image[i][j].blue = (0);
+					}
+				}
+			}
+			 if(matrix[k][p] == 'O'){
+				for (i =  n/size*k; i < n/size*(k+1); i++)  {  // row
+					for (j = n/size*p; j < n/size*(p+1); j++) { // column
+						image[i][j].red = (0); 
+						image[i][j].green = (0);
+						image[i][j].blue = (250);
+					}
+				}
+			}
+	
+
+			if(matrix[k][p] == '.'){
+				for (i =  n/size*k; i < n/size*(k+1); i++)  {  // row
+					for (j = n/size*p; j < n/size*(p+1); j++) { // column
+						image[i][j].red = (0); 
+						image[i][j].green = (0);
+						image[i][j].blue = (0);
+					}
+				}
+			}
+
+		}
+	}
+
+
+
+	imageFile.write(reinterpret_cast<char*>(&image), 3*n*n);
+	imageFile.close();
+	
+
+
+
+
+
+		
+  return name;
 }
 
 ostream& operator<<(ostream& os, const Board& b) {
