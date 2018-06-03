@@ -23,7 +23,7 @@ Board(const Board& b);
 Place& operator[](const Place& p) ; 
 Board& operator=(char index);
 Board& operator=(const Board& b);
-
+~Board();
 void create(int newsize);
 string draw(int n);
 
