@@ -4,9 +4,10 @@
 
 class IllegalCharException{
 
-char index;
+
 
 public:
+char index;
 IllegalCharException(char index);
 char theChar() const;
 

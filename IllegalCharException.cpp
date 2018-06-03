@@ -4,7 +4,7 @@
 
 
 
-IllegalCharException::IllegalCharException(char undex):index(index)
+IllegalCharException::IllegalCharException(char undex):index(undex)
 {};
 
 
